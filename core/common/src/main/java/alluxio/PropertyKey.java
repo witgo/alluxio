@@ -2446,6 +2446,13 @@ public final class PropertyKey implements Comparable<PropertyKey> {
           .setConsistencyCheckLevel(ConsistencyCheckLevel.WARN)
           .setScope(Scope.CLIENT)
           .build();
+  public static final PropertyKey USER_HDFS_WRITE_TYPE_DEFAULT =
+      new Builder(Name.USER_HADOOP_WRITE_TYPE_DEFAULT)
+          .setDefaultValue("")
+          .setDescription("Default write type when creating Alluxio files using hadoop.")
+          .setConsistencyCheckLevel(ConsistencyCheckLevel.WARN)
+          .setScope(Scope.CLIENT)
+          .build();
   public static final PropertyKey USER_FILE_WRITE_TIER_DEFAULT =
       new Builder(Name.USER_FILE_WRITE_TIER_DEFAULT)
           .setDefaultValue(Constants.FIRST_TIER)
@@ -3473,6 +3480,8 @@ public final class PropertyKey implements Comparable<PropertyKey> {
     public static final String USER_FILE_WRITE_AVOID_EVICTION_POLICY_RESERVED_BYTES =
         "alluxio.user.file.write.avoid.eviction.policy.reserved.size.bytes";
     public static final String USER_FILE_WRITE_TYPE_DEFAULT = "alluxio.user.file.writetype.default";
+    public static final String USER_HADOOP_WRITE_TYPE_DEFAULT =
+        "alluxio.user.hadoop.writetype.default";
     public static final String USER_FILE_WRITE_TIER_DEFAULT =
         "alluxio.user.file.write.tier.default";
     public static final String USER_HEARTBEAT_INTERVAL_MS = "alluxio.user.heartbeat.interval";

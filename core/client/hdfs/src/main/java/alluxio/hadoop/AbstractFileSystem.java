@@ -131,7 +131,9 @@ abstract class AbstractFileSystem extends org.apache.hadoop.fs.FileSystem {
       if (mFileSystem.exists(uri)) {
         throw new IOException(ExceptionMessage.FILE_ALREADY_EXISTS.getMessage(uri));
       }
-      return new FSDataOutputStream(mFileSystem.createFile(uri), mStatistics);
+      CreateFileOptions options = CreateFileOptions.defaults();
+      options.setWriteType(HadoopWriteTypeUtils.getSpecifiedWriteType(uri.getPath()));
+      return new FSDataOutputStream(mFileSystem.createFile(uri, options), mStatistics);
     } catch (AlluxioException e) {
       throw new IOException(e);
     }
@@ -173,6 +175,7 @@ abstract class AbstractFileSystem extends org.apache.hadoop.fs.FileSystem {
     AlluxioURI uri = new AlluxioURI(HadoopUtils.getPathWithoutScheme(path));
     CreateFileOptions options = CreateFileOptions.defaults().setBlockSizeBytes(blockSize)
         .setMode(new Mode(permission.toShort()));
+    options.setWriteType(HadoopWriteTypeUtils.getSpecifiedWriteType(uri.getPath()));
 
     FileOutStream outStream;
     try {
@@ -638,6 +641,7 @@ abstract class AbstractFileSystem extends org.apache.hadoop.fs.FileSystem {
     CreateDirectoryOptions options =
         CreateDirectoryOptions.defaults().setRecursive(true).setAllowExists(true)
             .setMode(new Mode(permission.toShort()));
+    options.setWriteType(HadoopWriteTypeUtils.getSpecifiedWriteType(uri.getPath()));
     try {
       mFileSystem.createDirectory(uri, options);
       return true;
