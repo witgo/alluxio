@@ -32,6 +32,8 @@ public class HadoopWriteTypeUtilsTest {
    */
   @Test
   public void getSpecifiedWriteTypeWithScheme() {
+    assertEquals(Configuration.getEnum(PropertyKey.USER_FILE_WRITE_TYPE_DEFAULT, WriteType.class),
+        HadoopWriteTypeUtils.getSpecifiedWriteType("/a/b/c/"));
     Configuration.set(PropertyKey.USER_HDFS_WRITE_TYPE_DEFAULT,
         "/a/b:NONE,/a/:MUST_CACHE,/:ASYNC_THROUGH");
     assertEquals(WriteType.NONE,
