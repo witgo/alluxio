@@ -32,7 +32,7 @@ metadata:
 spec:
   storageClassName: standard
   accessModes:
-    - ReadWriteMany
+  - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
@@ -56,36 +56,38 @@ spec:
       hostPID: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
-        - name: alluxio-master
-          image: alluxio/alluxio:1.6.1
-          resources:
-            requests:
-              cpu: "0.5"
-              memory: "512M"
-            limits:
-              cpu: "1"
-              memory: "1024M"
-          command: ["/entrypoint.sh"]
-          args: ["master"]
-          envFrom:
-          - configMapRef:
-              name: alluxio-config
-          ports:
-          - containerPort: 19998
-            name: rpc
-          - containerPort: 19999
-            name: web
-          volumeMounts:
-            - name: alluxio-journal
-              mountPath: /journal
-            - name: alluxio-domain
-              mountPath: /opt/domain
+      - name: alluxio-master
+        image: alluxio-1.9.0-snapshot:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "0.5"
+            memory: "512M"
+          limits:
+            cpu: "1"
+            memory: "1024M"
+        command: ["/entrypoint.sh"]
+        args: ["master"]
+        ports:
+        - containerPort: 19998
+          name: rpc
+        - containerPort: 19999
+          name: web
+        volumeMounts:
+        - name: alluxio-journal
+          mountPath: /journal
+        - name: alluxio-domain
+          mountPath: /opt/domain
+        - name: config-volume
+          mountPath: /opt/alluxio/conf
       restartPolicy: Always
       volumes:
-        - name: alluxio-journal
-          persistentVolumeClaim:
-            claimName: alluxio-pv-claim
-        - name: alluxio-domain
-          hostPath:
-            path: /tmp/domain
-            type: Directory
+      - name: alluxio-journal
+        persistentVolumeClaim:
+          claimName: alluxio-pv-claim
+      - name: alluxio-domain
+        hostPath:
+          path: /tmp/domain
+      - name: config-volume
+        configMap:
+          name: alluxio-config

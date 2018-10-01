@@ -25,7 +25,8 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: alluxio-worker
-          image: alluxio/alluxio:1.6.1
+          image: "alluxio-1.9.0-snapshot:latest"
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               cpu: "0.5"
@@ -57,6 +58,8 @@ spec:
               mountPath: /dev/shm
             - name: alluxio-domain
               mountPath: /opt/domain
+            - name: config-volume
+              mountPath: /opt/alluxio/conf
       restartPolicy: Always
       volumes:
         - name: alluxio-ramdisk
@@ -66,4 +69,6 @@ spec:
         - name: alluxio-domain
           hostPath:
             path: /tmp/domain
-            type: Directory
+        - name: config-volume
+          configMap:
+            name: alluxio-config

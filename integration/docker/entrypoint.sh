@@ -41,34 +41,6 @@ fi
 home=/opt/alluxio
 cd ${home}
 
-# List of environment variables which go in alluxio-env.sh instead of
-# alluxio-site.properties
-alluxio_env_vars=(
-  ALLUXIO_CLASSPATH
-  ALLUXIO_HOSTNAME
-  ALLUXIO_JARS
-  ALLUXIO_JAVA_OPTS
-  ALLUXIO_MASTER_JAVA_OPTS
-  ALLUXIO_PROXY_JAVA_OPTS
-  ALLUXIO_RAM_FOLDER
-  ALLUXIO_USER_JAVA_OPTS
-  ALLUXIO_WORKER_JAVA_OPTS
-)
-
-for keyvaluepair in $(env); do
-  # split around the "="
-  key=$(echo ${keyvaluepair} | cut -d= -f1)
-  value=$(echo ${keyvaluepair} | cut -d= -f2-)
-  if [[ "${alluxio_env_vars[*]}" =~ "${key}" ]]; then
-    echo "export ${key}=${value}" >> conf/alluxio-env.sh
-  else
-    # check if property name is valid
-    if confkey=$(bin/alluxio runClass alluxio.cli.GetConfKey ${key} 2> /dev/null); then
-      echo "${confkey}=${value}" >> conf/alluxio-site.properties
-    fi
-  fi
-done
-
 if [ "$ENABLE_FUSE" = true ]; then
   integration/fuse/bin/alluxio-fuse mount /alluxio-fuse /
 fi
