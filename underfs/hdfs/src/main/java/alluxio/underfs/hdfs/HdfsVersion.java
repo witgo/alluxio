@@ -17,8 +17,6 @@ import javax.annotation.Nullable;
 
 /** The set of supported Hdfs versions. */
 public enum HdfsVersion {
-  HADOOP_1_0("hadoop-1.0", "(hadoop-?1\\.0(\\.(\\d+))?|1\\.0(\\.(\\d+)(-.*)?)?)"),
-  HADOOP_1_2("hadoop-1.2", "(hadoop-?1\\.2(\\.(\\d+))?|1\\.2(\\.(\\d+)(-.*)?)?)"),
   HADOOP_2_2("hadoop-2.2", "(hadoop-?2\\.2(\\.(\\d+))?|2\\.2(\\.(\\d+)(-.*)?)?)"),
   HADOOP_2_3("hadoop-2.3", "(hadoop-?2\\.3(\\.(\\d+))?|2\\.3(\\.(\\d+)(-.*)?)?)"),
   HADOOP_2_4("hadoop-2.4", "(hadoop-?2\\.4(\\.(\\d+))?|2\\.4(\\.(\\d+)(-.*)?)?)"),

@@ -28,17 +28,7 @@ public class HdfsVersionTest {
   }
 
   @Test
-  public void findByHadoopLabel() throws Exception {
-    Assert.assertEquals(HdfsVersion.HADOOP_1_0, HdfsVersion.find("1.0.0"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_0, HdfsVersion.find("1.0.0-SNAPSHOT"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_0, HdfsVersion.find("hadoop-1.0"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_0, HdfsVersion.find("hadoop-1.0.0"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_0, HdfsVersion.find("hadoop1.0"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_2, HdfsVersion.find("1.2.0"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_2, HdfsVersion.find("1.2.0-SNAPSHOT"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_2, HdfsVersion.find("hadoop-1.2"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_2, HdfsVersion.find("hadoop-1.2.0"));
-    Assert.assertEquals(HdfsVersion.HADOOP_1_2, HdfsVersion.find("hadoop1.2"));
+  public void findByHadoopLabel() throws Exception { ;
     Assert.assertEquals(HdfsVersion.HADOOP_2_2, HdfsVersion.find("2.2.0"));
     Assert.assertEquals(HdfsVersion.HADOOP_2_2, HdfsVersion.find("2.2.0-SNAPSHOT"));
     Assert.assertEquals(HdfsVersion.HADOOP_2_2, HdfsVersion.find("hadoop-2.2"));

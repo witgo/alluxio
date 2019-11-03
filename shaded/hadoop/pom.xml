@@ -58,19 +58,6 @@
   </dependencies>
 
   <profiles>
-    <!-- Profile to build this UFS module connecting to hdfs 1 -->
-    <profile>
-      <!-- Decouple hadoop profiles: hadoop-1 to indicate north bound and ufs-hadoop-1 to indicate the south bound -->
-      <id>ufs-hadoop-1</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-core</artifactId>
-          <version>${ufs.hadoop.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
-
     <!-- Profile to build this UFS module connecting to hdfs 2, this is the default profile -->
     <profile>
       <!-- Decouple hadoop profiles: hadoop-2 to indicate north bound and ufs-hadoop-2 to indicate the south bound -->

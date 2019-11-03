@@ -827,11 +827,6 @@
           <version>1.0</version>
         </plugin>
         <plugin>
-          <groupId>com.igormaznitsa</groupId>
-          <artifactId>jcp</artifactId>
-          <version>6.1.2</version>
-        </plugin>
-        <plugin>
           <groupId>com.mycila</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <version>2.9</version>
@@ -1229,13 +1224,6 @@
       <id>contractTest</id>
       <properties>
         <hadoop.version>2.6.5</hadoop.version>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hadoop-1</id>
-      <properties>
-        <hadoop.version>1.0.4</hadoop.version>
       </properties>
     </profile>
 

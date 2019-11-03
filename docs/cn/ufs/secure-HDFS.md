@@ -25,7 +25,7 @@ priority: 3
 $ mvn install -P<YOUR_HADOOP_PROFILE> -DskipTests
 ```
 
-Alluxio为不同的Hadoop版本提供了预先定义好的配置文件，包括`hadoop-1`, `hadoop-2.2`, `hadoop-2.3` ...`hadoop-2.8`。如果你想将Alluxio和一个具体的Hadoop发行版本一起编译，你可以在命令中指定版本`<YOUR_HADOOP_VERSION>`
+Alluxio为不同的Hadoop版本提供了预先定义好的配置文件，包括`hadoop-2.2`, `hadoop-2.3` ...`hadoop-2.8`。如果你想将Alluxio和一个具体的Hadoop发行版本一起编译，你可以在命令中指定版本`<YOUR_HADOOP_VERSION>`
 比如：
 
 ```console

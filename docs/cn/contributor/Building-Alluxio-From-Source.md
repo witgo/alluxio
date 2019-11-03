@@ -87,7 +87,7 @@ $ ./bin/alluxio-stop.sh local
 $ mvn install -P<HADOOP_PROFILE> -Dhadoop.version=<HADOOP_VERSION> -DskipTests
 ```
 
-`<HADOOP_VERSION>`可以被设置不同值。可用的Hadoop配置文件包括`hadoop-1`, `hadoop-2`, `hadoop-3`，涵盖主要的Hadoop版本1.x, 2.x和3.x。
+`<HADOOP_VERSION>`可以被设置不同值。可用的Hadoop配置文件包括`hadoop-2`, `hadoop-3`，涵盖主要的Hadoop版本2.x和3.x。
 
 #### Apache
 所有主要版本都来自Apache，所以所有Apache发行版都可以直接使用。

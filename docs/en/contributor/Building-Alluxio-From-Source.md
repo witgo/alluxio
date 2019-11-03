@@ -114,7 +114,7 @@ command by specifying `<HADOOP_PROFILE>` and the corresponding `hadoop.version`.
 $ mvn install -P<HADOOP_PROFILE> -Dhadoop.version=<HADOOP_VERSION> -DskipTests
 ```
 where `<HADOOP_VERSION>` can be set for different distributions.
-Available Hadoop profiles include `hadoop-1`, `hadoop-2`, `hadoop-3` to cover the major Hadoop
+Available Hadoop profiles include `hadoop-2`, `hadoop-3` to cover the major Hadoop
 versions 1.x, 2.x and 3.x.
 
 #### Apache
@@ -122,8 +122,6 @@ versions 1.x, 2.x and 3.x.
 All main builds are from Apache so all Apache releases can be used directly
 
 ```properties
--Phadoop-1 -Dhadoop.version=1.0.4
--Phadoop-1 -Dhadoop.version=1.2.0
 -Phadoop-2 -Dhadoop.version=2.2.0
 -Phadoop-2 -Dhadoop.version=2.3.0
 -Phadoop-2 -Dhadoop.version=2.4.1
